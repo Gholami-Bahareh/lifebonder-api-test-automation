@@ -22,5 +22,8 @@
   "homepage": "https://github.com/Gholami-Bahareh/lifebonder-api-test-automation#readme",
   "devDependencies": {
     "@playwright/test": "^1.63.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }
