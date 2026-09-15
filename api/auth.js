@@ -16,10 +16,7 @@ async function login() {
         }
     });
 
-    console.log('Status:', response.status());
-
     const responseBody = await response.json();
-    console.log(responseBody);
 
     await apiContext.dispose();
 
