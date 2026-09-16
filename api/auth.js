@@ -1,12 +1,8 @@
-const { request } = require('@playwright/test');
+
 require('dotenv').config();
 
-async function login() {
-    const apiContext = await request.newContext({
-        baseURL: process.env.BASE_URL
-    });
-
-    const response = await apiContext.post('/connect/token', {
+async function login(request) {
+    const response = await request.post('/connect/token', {
         form: {
             userName: process.env.API_USERNAME,
             password: process.env.API_PASSWORD,
@@ -18,9 +14,8 @@ async function login() {
 
     const responseBody = await response.json();
 
-    await apiContext.dispose();
-
     return responseBody.access_token;
 }
+
 
 module.exports = { login };

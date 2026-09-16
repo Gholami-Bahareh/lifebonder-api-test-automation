@@ -3,7 +3,7 @@ const { login } = require('../api/auth');
 const {FriendCardsApi} = require('../api/friend-cards');
 
 test('Get user friend cards', async ({ request }) => {
-    const token = await login();
+    const token = await login(request);
 
     const friendCardsApi = new FriendCardsApi(request, token);
 
@@ -11,7 +11,4 @@ test('Get user friend cards', async ({ request }) => {
 
     expect(response.status()).toBe(200);
 
-    const responseBody = await response.json();
-
-    console.log(responseBody);
 });
