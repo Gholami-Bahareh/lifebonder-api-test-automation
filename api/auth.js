@@ -1,14 +1,14 @@
 
-require('dotenv').config();
+const { config } = require('../config/config');
 
 async function login(request) {
     const response = await request.post('/connect/token', {
         form: {
-            userName: process.env.API_USERNAME,
-            password: process.env.API_PASSWORD,
-            client_id: process.env.CLIENT_ID,
+            userName: config.username,
+            password: config.password,
+            client_id: config.clientId,
             client_secret: '',
-            grant_type: process.env.GRANT_TYPE
+            grant_type: config.grantType
         }
     });
 

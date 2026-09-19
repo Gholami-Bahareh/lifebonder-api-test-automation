@@ -1,4 +1,5 @@
 const { defineConfig } = require('@playwright/test');
+const { config } = require('./config/config');
 
 module.exports = defineConfig({
   testDir: './tests',
@@ -8,6 +9,6 @@ module.exports = defineConfig({
   reporter: 'html',
 
   use: {
-    baseURL: 'https://lifebondertestapi.azurewebsites.net',
+    baseURL: config.baseURL,
   },
 });
