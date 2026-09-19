@@ -1,14 +1,8 @@
-const { test, expect } = require('@playwright/test');
-const { login } = require('../api/auth');
-const {FriendCardsApi} = require('../api/friend-cards');
+const { expect } = require('@playwright/test');
+const { test } = require('../fixtures/api-fixtures');
 
-test('Get user friend cards', async ({ request }) => {
-    const token = await login(request);
-
-    const friendCardsApi = new FriendCardsApi(request, token);
-
+test('Get user friend cards', async ({ friendCardsApi }) => {
     const response = await friendCardsApi.getFriendCards();
 
     expect(response.status()).toBe(200);
-
 });
