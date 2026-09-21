@@ -10,7 +10,7 @@ class GroupChatsApi {
                 Authorization: `Bearer ${this.token}`
             },
             params: {
-                DeviceId: '<{F6#k:"pl' 
+                DeviceId: process.env.DeviceId 
             }
         });
     }
